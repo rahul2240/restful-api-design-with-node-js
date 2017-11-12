@@ -3,7 +3,7 @@ var app = express();
 var db = require('./db'); 
 
 var UserController = require('./user/UserController');
-app.use('/users', UserController);
+app.use('/', UserController);
 
 module.exports = app;
 
