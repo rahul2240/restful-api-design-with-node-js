@@ -25,4 +25,22 @@ router.get('/',function(req, res){
 		res.status(200).send(users);
 	});
 });
+
+
+router.get('/:id', function(req, res){
+	User.findById(req.params.id, fucntion(err, user){
+		if (err) return res.status(500).send('Having problem in finding a problem');
+		if(!user) return res.status(400).send('User not found')
+		res.status(200).send(user);	
+	});
+});
+
+
+router.delete('/:id', fucntion(req, res){
+	User.findByIdAndRemove(req.params.id, function(err, user){
+		if (err) return res.status(500).send("There was a problem deleting the user.");
+        res.status(200).send("User "+ user.name +" was deleted.");
+	});
+});
+
 module.exports = router;
