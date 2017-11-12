@@ -13,7 +13,7 @@ router.post('/',function(req, res){
 
 	function(err, url){
 		if (err) return res.status(500).send("There is a problem");
-		res.status(200).send(url.id);
+		res.status(200).send("<p>Short Url: " + url.id + "</p><p>Use: localhost:3000/url/"+ url.id +"</p>");
 	});
 });
 
